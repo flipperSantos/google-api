@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Googleapi</title>
@@ -7,8 +8,51 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #street-view {
+      height: 100%;
+    }
+
+    #map {
+      height: 100%;
+    }
+  </style>
 </head>
+
 <body>
   <app-root></app-root>
+  <div id="street-view"></div>
+  <div id="map"></div>
+  <script>
+    var panorama;
+    var map;
+    function initialize() {
+      panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('street-view'),
+        {
+          position: { lat: 37.869260, lng: -122.254811 },
+          pov: { heading: 165, pitch: 0 },
+          zoom: 1
+        });
+    }
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8
+      });
+    }
+  </script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9KPGr-uQZ0ygrhzcMheP_mTYHn0xJYQQ&callback=initMap">
+  </script> -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9KPGr-uQZ0ygrhzcMheP_mTYHn0xJYQQ&callback=initialize">
+  </script>
 </body>
+
 </html>
