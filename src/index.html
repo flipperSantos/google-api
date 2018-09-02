@@ -23,7 +23,6 @@
     #map {
       height: 100%;
     }
-    
   </style>
 </head>
 
@@ -35,6 +34,10 @@
     var panorama;
     var map;
     function initialize() {
+      initMap();
+      initStreetView();
+    }
+    function initStreetView() {
       panorama = new google.maps.StreetViewPanorama(
         document.getElementById('street-view'),
         {
@@ -50,8 +53,6 @@
       });
     }
   </script>
-  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9KPGr-uQZ0ygrhzcMheP_mTYHn0xJYQQ&callback=initMap">
-  </script> -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9KPGr-uQZ0ygrhzcMheP_mTYHn0xJYQQ&callback=initialize">
   </script>
 </body>
